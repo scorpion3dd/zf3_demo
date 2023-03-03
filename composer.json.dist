@@ -1,0 +1,168 @@
+{
+    "name": "zendframework-demo/simple-application-free-lottery",
+    "description": "Simple Web Demo Free Lottery Management Application by Zend Framework 3 MVC application",
+    "type": "project",
+    "license": "BSD-3-Clause",
+    "keywords": [
+        "framework",
+        "mvc",
+        "zf3"
+    ],
+    "homepage": "https://github.com/scorpion3dd/",
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "require": {
+        "php": "^7.4 | ^8.0",
+        "ext-gd": "*",
+        "ext-mbstring": "*",
+        "ext-intl": "*",
+        "ext-json": "*",
+        "ext-pdo": "*",
+        "ext-mongo": "*",
+        "ext-mongodb": "*",
+        "ext-iconv": "*",
+        "ext-redis": "*",
+        "zendframework/zend-component-installer": "*",
+        "zendframework/zend-mvc": "*",
+        "zendframework/zend-mvc-form": "*",
+        "zendframework/zend-mvc-plugins": "*",
+        "zendframework/zend-session": "*",
+        "zendframework/zend-authentication": "*",
+        "zendframework/zend-math": "*",
+        "zendframework/zend-crypt": "*",
+        "zendframework/zend-captcha": "*",
+        "zendframework/zend-mail": "*",
+        "zendframework/zend-mime": "*",
+        "zendframework/zend-cache": "*",
+        "zendframework/zend-serializer": "*",
+        "zendframework/zend-permissions-rbac": "*",
+        "zendframework/zend-mvc-i18n": "*",
+        "zendframework/zend-http": "*",
+        "zendframework/zend-json": "*",
+        "zendframework/zend-stdlib": "*",
+        "zendframework/zend-log": "*",
+        "zfcampus/zf-development-mode": "*",
+        "doctrine/orm": "*",
+        "doctrine/dbal": "*",
+        "doctrine/doctrine-orm-module": "*",
+        "doctrine/migrations": "*",
+        "doctrine/data-fixtures": "*",
+        "doctrine/mongodb-odm": "*",
+        "doctrine/doctrine-mongo-odm-module": "*",
+        "alcaeus/mongo-php-adapter": "*",
+        "beberlei/doctrineextensions": "*",
+        "symfony/yaml": "*",
+        "fzaninotto/faker": "*",
+        "nesbot/carbon": "*",
+        "firebase/php-jwt": "*",
+        "zircote/swagger-php": "*",
+        "psr/container": "*",
+        "mongodb/mongodb": "*",
+        "phpmailer/phpmailer": "*",
+        "graylog2/gelf-php": "*",
+        "nmred/kafka-php": "^0.2",
+        "monolog/monolog": "^2.8"
+    },
+    "autoload": {
+        "psr-4": {
+            "Application\\": "module/Application/src/",
+            "User\\": "module/User/src/",
+            "Migrations\\": "data/Migrations/",
+            "Fixtures\\": "data/Fixtures/",
+            "FixturesIntegration\\": "data/FixturesIntegration/",
+            "Console\\": "console/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "ApplicationTest\\": "module/Application/test/",
+            "UserTest\\": "module/User/test/"
+        }
+    },
+    "extra": [],
+    "scripts": {
+        "cs-check": "phpcs",
+        "cs-fix": "phpcbf",
+        "stan-check": "phpstan analyse --level=7 --memory-limit=1024M --xdebug",
+        "test-application": "phpunit --testsuite=Application",
+        "test-application-unit": "phpunit --testsuite=Application-unit",
+        "test-application-integration": "phpunit --testsuite=Application-integration",
+        "test-user": "phpunit --testsuite=User",
+        "test-user-unit": "phpunit --testsuite=User-unit",
+        "test-user-integration": "phpunit --testsuite=User-integration",
+        "test-unit": "phpunit --testsuite=Unit",
+        "test-integration": "phpunit --testsuite=Integration",
+        "test-all": [
+            "composer test-unit",
+            "composer test-integration"
+        ],
+        "db-drop": "php console/dropStructure.php",
+        "db-drop-integration": "php console/dropStructureIntegration.php",
+        "db-create": "php console/createDb.php",
+        "db-create-integration": "php console/createDbIntegration.php",
+        "db-update": "php console/updateDb.php",
+        "db-migrations": "php console/migrations.php migrations:migrate",
+        "db-loadingFixtures": "php console/loadingFixtures.php",
+        "db-loadingFixturesIntegration": "php console/loadingFixturesIntegration.php",
+        "project-init": [
+            "composer db-create",
+            "composer db-loadingFixtures"
+        ],
+        "project-init-integration": [
+            "composer db-create-integration",
+            "composer db-loadingFixturesIntegration"
+        ],
+        "project-check-unit": [
+            "composer cs-check",
+            "composer stan-check",
+            "composer test-unit"
+        ],
+        "project-check-integration": [
+            "composer cs-check",
+            "composer stan-check",
+            "composer test-integration"
+        ],
+        "project-check-all": [
+            "composer cs-check",
+            "composer stan-check",
+            "composer test-all"
+        ],
+        "project-refresh-unit": [
+            "composer db-drop",
+            "composer project-init",
+            "composer project-check-unit"
+        ],
+        "project-refresh-integration": [
+            "composer db-drop-integration",
+            "composer project-init-integration",
+            "composer project-check-integration"
+        ],
+        "project-refresh-all": [
+            "composer db-drop",
+            "composer project-init",
+            "composer db-drop-integration",
+            "composer project-init-integration",
+            "composer project-check-all"
+        ],
+        "development-disable": "zf-development-mode disable",
+        "development-enable": "zf-development-mode enable",
+        "development-status": "zf-development-mode status",
+        "serve": "php -S 0.0.0.0:8080 -t public/ public/index.php"
+    },
+    "require-dev": {
+        "php": "^7.4 | ^8.0",
+        "ext-curl": "*",
+        "zendframework/zend-test": "*",
+        "phpunit/php-invoker": "*",
+        "phpunit/php-code-coverage": "*",
+        "squizlabs/php_codesniffer": "*",
+        "phpstan/phpstan": "*",
+        "phpstan/phpstan-doctrine": "*",
+        "phpstan/phpstan-phpunit": "*"
+    },
+    "config": {
+        "allow-plugins": {
+            "zendframework/zend-component-installer": true
+        }
+    }
+}
