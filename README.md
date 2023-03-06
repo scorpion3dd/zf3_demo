@@ -124,7 +124,7 @@ SET GLOBAL log_bin_trust_function_creators = 1;
 
 6. Clone a project code from the repository
 ~~~~~~bash
-git clone https://scorpion3dd@bitbucket.org/3dscorpion7/zend-3.git
+git clone https://github.com/scorpion3dd/zf3_demo.git
 ~~~~~~
 
 7. Composer install the dependencies (Zend Framework components and
@@ -221,10 +221,10 @@ project and you should be ready to go! It should look something like below:
 
 ```apache
 <VirtualHost *:80>
-    ServerName zf3.learn.vms
-    ServerAlias www.zf3.learn.vms
-    DocumentRoot /path/to/zf3-learn/public
-    <Directory /path/to/zf3-learn/public>
+    ServerName zf3.demo.vms
+    ServerAlias www.zf3.demo.vms
+    DocumentRoot /path/to/zf3_demo/public
+    <Directory /path/to/zf3_demo/public>
         DirectoryIndex index.php
         AllowOverride All
         Order allow,deny
@@ -257,8 +257,8 @@ it should look something like below:
 ```nginx
 server {
     listen       80;
-    server_name  zf3.learn.vms;
-    root         /path/to/zf3-learn/public;
+    server_name  zf3.demo.vms;
+    root         /path/to/zf3_demo/public;
 
     location / {
         index index.php;
@@ -292,7 +292,7 @@ composer project-check-all
 ~~~~~~
 
 18. Now you should be able to see the `Simple Web Demo Free Lottery Management Application` 
-website by visiting the link "http://zf3.learn.vms/".
+website by visiting the link "http://zf3.demo.vms/".
 
 19. If you want to test the site performance on any amount of data, you can:
 - set value to parameter `app.count_users` the required number of entries for new users - in the
