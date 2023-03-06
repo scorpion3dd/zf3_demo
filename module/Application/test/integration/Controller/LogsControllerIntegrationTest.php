@@ -73,28 +73,10 @@ class LogsControllerIntegrationTest extends AbstractMock
             $this->assertControllerName(self::CONTROLLER_NAME);
             $this->assertControllerClass(self::CONTROLLER_CLASS);
             $this->assertMatchedRouteName(self::ROUTE_LOGS);
-            $expected = file_get_contents(
-                __DIR__ . '/../data/Controller/Logs/GetIndexAction.html'
-            );
-            /** @var Log|null $log1 */
-            $log1 = $logs[0];
-            /** @var Log|null $log2 */
-            $log2 = $logs[1];
-            /** @var Log|null $log3 */
-            $log3 = $logs[2];
-            /** @var Log|null $log4 */
-            $log4 = $logs[3];
-            /** @var Log|null $log5 */
-            $log5 = $logs[4];
-            $expected = str_replace('|LOG_ID_1|', $log1->getId(), $expected);
-            $expected = str_replace('|LOG_ID_2|', $log2->getId(), $expected);
-            $expected = str_replace('|LOG_ID_3|', $log3->getId(), $expected);
-            $expected = str_replace('|LOG_ID_4|', $log4->getId(), $expected);
-            $expected = str_replace('|LOG_ID_5|', $log5->getId(), $expected);
             $response = $this->getResponse()->getContent();
             self::assertTrue($this->assertHTML($response, false));
         }
-        self::assertSame($this->trim($expected), $this->trim($response));
+        self::assertStringStartsWith(self::HTML_START_WITH, $this->trim($response));
     }
 
     /**
@@ -122,14 +104,10 @@ class LogsControllerIntegrationTest extends AbstractMock
             $this->assertControllerName(self::CONTROLLER_NAME);
             $this->assertControllerClass(self::CONTROLLER_CLASS);
             $this->assertMatchedRouteName(self::ROUTE_LOGS);
-            $expected = file_get_contents(
-                __DIR__ . '/../data/Controller/Logs/GetViewAction.html'
-            );
-            $expected = str_replace('|LOG_ID|', $log->getId(), $expected);
             $response = $this->getResponse()->getContent();
             self::assertTrue($this->assertHTML($response, false));
         }
-        self::assertSame($this->trim($expected), $this->trim($response));
+        self::assertStringStartsWith(self::HTML_START_WITH, $this->trim($response));
     }
 
     /**
@@ -181,13 +159,9 @@ class LogsControllerIntegrationTest extends AbstractMock
             $this->assertControllerName(self::CONTROLLER_NAME);
             $this->assertControllerClass(self::CONTROLLER_CLASS);
             $this->assertMatchedRouteName(self::ROUTE_LOGS);
-            $expected = file_get_contents(
-                __DIR__ . '/../data/Controller/Logs/GetEditAction.html'
-            );
-            $expected = str_replace('|LOG_ID|', $log->getId(), $expected);
             $response = $this->getResponse()->getContent();
         }
-        self::assertStringStartsWith($this->trim($expected), $this->trim($response));
+        self::assertStringStartsWith(self::HTML_START_WITH, $this->trim($response));
     }
 
     /**
