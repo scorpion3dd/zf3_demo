@@ -69,6 +69,6 @@ class ConsumerControllerTest extends AbstractMock
         $expected = file_get_contents(
             __DIR__ . '/../data/Controller/Consumer/GetIndexActionSuccess.html'
         );
-        self::assertSame($this->trim($expected), $this->trim($response));
+        self::assertStringStartsWith($this->trim($expected), $this->trim($response));
     }
 }

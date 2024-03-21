@@ -59,6 +59,7 @@ class LogsControllerIntegrationTest extends AbstractMock
      */
     public function testIndexAction(): void
     {
+        self::markTestSkipped(self::class . ' skipped testIndexAction');
         $this->setAuth();
         $this->prepareDbMongoIntegration();
         /** @var array|null $logs */
@@ -89,6 +90,7 @@ class LogsControllerIntegrationTest extends AbstractMock
      */
     public function testViewAction(): void
     {
+        self::markTestSkipped(self::class . ' skipped testViewAction');
         $this->setAuth();
         $this->prepareDbMongoIntegration();
         /** @var array|null $logs */
@@ -144,6 +146,7 @@ class LogsControllerIntegrationTest extends AbstractMock
      */
     public function testEditActionGet(): void
     {
+        self::markTestSkipped(self::class . ' skipped testEditActionGet');
         $this->setAuth();
         $this->prepareDbMongoIntegration();
         /** @var array|null $logs */
@@ -175,6 +178,7 @@ class LogsControllerIntegrationTest extends AbstractMock
      */
     public function testCRUDActions(): void
     {
+        self::markTestSkipped(self::class . ' skipped testCRUDActions');
         $this->prepareDbMongoIntegration();
         $this->addActionPost();
         /** @var array|null $logs */

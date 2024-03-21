@@ -29,5 +29,5 @@ $db->execute([
     UserFixtures::class,
     UserRoleFixtures::class,
     RolePermissionFixtures::class,
-    LogFixtures::class,
+//    LogFixtures::class,
 ], 'Loading fixtures for integration tests to DB ' . $db->getDbName() . ' success');

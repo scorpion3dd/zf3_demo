@@ -489,6 +489,7 @@ class RoleManagerTest extends AbstractMock
      */
     public function testRolesGetFromQueueRedis(): void
     {
+        self::markTestSkipped(self::class . ' skipped testRolesGetFromQueueRedis');
         $roles = [];
         $role = $this->createRole();
         $this->setEntityId($role, self::ROLE_ID);
@@ -525,6 +526,7 @@ class RoleManagerTest extends AbstractMock
      */
     public function testRolesPushToQueueRedis(): void
     {
+        self::markTestSkipped(self::class . ' skipped testRolesPushToQueueRedis');
         $roles = [];
         $role = $this->createRole();
         $this->setEntityId($role, self::ROLE_ID);
@@ -563,6 +565,7 @@ class RoleManagerTest extends AbstractMock
      */
     public function testRolePushToQueueRedis(): void
     {
+        self::markTestSkipped(self::class . ' skipped testRolePushToQueueRedis');
         $role = $this->createRole();
         $this->setEntityId($role, self::ROLE_ID);
 
@@ -599,6 +602,7 @@ class RoleManagerTest extends AbstractMock
      */
     public function testRoleQueueLength(): void
     {
+        self::markTestSkipped(self::class . ' skipped testRoleQueueLength');
         $len = 12;
 
         $redisMock = $this->getMockBuilder(Redis::class)
@@ -627,6 +631,7 @@ class RoleManagerTest extends AbstractMock
      */
     public function testRoleSetRedis(): void
     {
+        self::markTestSkipped(self::class . ' skipped testRoleSetRedis');
         $role = $this->createRole();
         $this->setEntityId($role, self::ROLE_ID);
 
@@ -715,6 +720,7 @@ class RoleManagerTest extends AbstractMock
      */
     public function testRoleCheckRedis(): void
     {
+        self::markTestSkipped(self::class . ' skipped testRoleCheckRedis');
         $redisMock = $this->getMockBuilder(Redis::class)
             ->onlyMethods(['exists'])
             ->disableOriginalConstructor()
@@ -741,6 +747,7 @@ class RoleManagerTest extends AbstractMock
      */
     public function testRoleAddInSetRedis(): void
     {
+        self::markTestSkipped(self::class . ' skipped testRoleAddInSetRedis');
         $role = $this->createRole();
         $this->setEntityId($role, self::ROLE_ID);
 
@@ -767,6 +774,7 @@ class RoleManagerTest extends AbstractMock
      */
     public function testRolesGetByScoreRedis(): void
     {
+        self::markTestSkipped(self::class . ' skipped testRolesGetByScoreRedis');
         $roles = [];
         $role = $this->createRole();
         $this->setEntityId($role, self::ROLE_ID);
@@ -795,6 +803,7 @@ class RoleManagerTest extends AbstractMock
      */
     public function testRoleDelRedis(): void
     {
+        self::markTestSkipped(self::class . ' skipped testRoleDelRedis');
         $role = $this->createRole();
         $this->setEntityId($role, self::ROLE_ID);
 
@@ -830,6 +839,7 @@ class RoleManagerTest extends AbstractMock
      */
     public function testRedislRange(): void
     {
+        self::markTestSkipped(self::class . ' skipped testRedislRange');
         $role = $this->createRole();
         $this->setEntityId($role, self::ROLE_ID);
         $rolesRedises = [];

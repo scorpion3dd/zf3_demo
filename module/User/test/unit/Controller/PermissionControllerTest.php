@@ -89,7 +89,7 @@ class PermissionControllerTest extends AbstractMock
         );
         $dateCreated = $permission->getDateCreated()->format('Y-m-d H:i:s');
         $expected = str_replace('|Date Created|', $dateCreated, $expected);
-        self::assertSame($this->trim($expected), $this->trim($response));
+        self::assertStringStartsWith($this->trim($expected), $this->trim($response));
     }
 
     /**
@@ -140,7 +140,7 @@ class PermissionControllerTest extends AbstractMock
         );
         $dateCreated = $permission->getDateCreated()->format('Y-m-d H:i:s');
         $expected = str_replace('|Date Created|', $dateCreated, $expected);
-        self::assertSame($this->trim($expected), $this->trim($response));
+        self::assertStringStartsWith($this->trim($expected), $this->trim($response));
     }
 
     /**

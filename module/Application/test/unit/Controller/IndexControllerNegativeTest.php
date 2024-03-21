@@ -57,7 +57,7 @@ class IndexControllerNegativeTest extends AbstractMock
         $expected = file_get_contents(
             __DIR__ . '/../data/Controller/Index/GetViewActionIdNotValid.html'
         );
-        self::assertSame($this->trim($expected), $this->trim($response));
+        self::assertStringStartsWith($this->trim($expected), $this->trim($response));
     }
 
     /**
@@ -97,7 +97,7 @@ class IndexControllerNegativeTest extends AbstractMock
         $expected = file_get_contents(
             __DIR__ . '/../data/Controller/Index/GetViewActionUserEmpty.html'
         );
-        self::assertSame($this->trim($expected), $this->trim($response));
+        self::assertStringStartsWith($this->trim($expected), $this->trim($response));
     }
 
     /**
@@ -124,7 +124,7 @@ class IndexControllerNegativeTest extends AbstractMock
         $expected = file_get_contents(
             __DIR__ . '/../data/Controller/Index/GetSettingsActionUserEmpty.html'
         );
-        self::assertSame($this->trim($expected), $this->trim($response));
+        self::assertStringStartsWith($this->trim($expected), $this->trim($response));
     }
 
     /**

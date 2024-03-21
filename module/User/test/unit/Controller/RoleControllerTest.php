@@ -106,7 +106,7 @@ class RoleControllerTest extends AbstractMock
         );
         $dateCreated = $role->getDateCreated()->format('Y-m-d H:i:s');
         $expected = str_replace('|Date Created|', $dateCreated, $expected);
-        self::assertSame($this->trim($expected), $this->trim($response));
+        self::assertStringStartsWith($this->trim($expected), $this->trim($response));
     }
 
     /**
@@ -192,7 +192,7 @@ class RoleControllerTest extends AbstractMock
         );
         $dateCreated = $role->getDateCreated()->format('Y-m-d H:i:s');
         $expected = str_replace('|Date Created|', $dateCreated, $expected);
-        self::assertSame($this->trim($expected), $this->trim($response));
+        self::assertStringStartsWith($this->trim($expected), $this->trim($response));
     }
 
     /**

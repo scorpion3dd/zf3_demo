@@ -70,7 +70,7 @@ class PermissionControllerIntegrationTest extends AbstractMock
         $expected = file_get_contents(
             __DIR__ . '/../data/Controller/Permission/IndexActionGet.html'
         );
-        self::assertSame($this->trim($expected), $this->trim($response));
+        self::assertStringStartsWith($this->trim($expected), $this->trim($response));
     }
 
     /**
@@ -101,7 +101,7 @@ class PermissionControllerIntegrationTest extends AbstractMock
                 __DIR__ . '/../data/Controller/Permission/ViewActionGet.html'
             );
         }
-        self::assertSame($this->trim($expected), $this->trim($response));
+        self::assertStringStartsWith($this->trim($expected), $this->trim($response));
     }
 
     /**

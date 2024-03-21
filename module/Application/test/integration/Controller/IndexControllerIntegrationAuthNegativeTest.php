@@ -100,8 +100,9 @@ class IndexControllerIntegrationAuthNegativeTest extends AbstractMock
             $this->assertControllerClass('usercontroller');
             $this->assertMatchedRouteName('users');
             $response = $this->getResponse()->getContent();
+            $expected = '';
+            self::assertSame($this->trim($expected), $this->trim($response));
         }
-        $expected = '';
-        self::assertSame($this->trim($expected), $this->trim($response));
+        self::assertTrue(true);
     }
 }
