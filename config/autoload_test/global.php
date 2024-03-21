@@ -45,7 +45,7 @@ return [
             'adapter' => [
                 'name'    => Filesystem::class,
                 'options' => [
-                    'cache_dir' => './data/cache_test',
+                    'cache_dir' => __DIR__ . '/../../data/cache',
                     // Store cached data for 1 milliseconds require for tests
                     'ttl' => 1
                 ],

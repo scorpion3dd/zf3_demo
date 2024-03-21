@@ -55,7 +55,7 @@ return [
             'adapter' => [
                 'name'    => Filesystem::class,
                 'options' => [
-                    'cache_dir' => './data/cache',
+                    'cache_dir' => __DIR__ . '/../../data/cache',
                     // Store cached data for 1 hour
                     'ttl' => 60 * 60 * 1
                 ],
@@ -84,11 +84,22 @@ return [
         'LoggerGlobal' => [
             'writers' => [
                 'dbwriter' => [
-                    'name' => 'mongodb',  // change it to 'name' => 'noop' to disable mongodb logging
+                    'name' => 'noop',  // change it to 'name' => 'noop' to disable mongodb logging
                     'options' => [
-                        'manager' => new Manager('mongodb://127.0.0.1:27017'),
-                        'collection'   => 'logs',
-                        'database'     => 'zf3_demo',
+//                        'manager' => new Manager('mongodb://127.0.0.1:27017'),
+                        'manager' => new Manager('mongodb://'
+                            . getenv('MONGO_CONNECT_USER')
+                            . ':'
+                            . getenv('MONGO_CONNECT_PASSWORD')
+                            . '@'
+                            . getenv('MONGO_HOST')
+                            . ':'
+                            . getenv('MONGO_PORT')
+                            . '/'
+                            . getenv('MONGO_CONNECT_DB')
+                            . '?directConnection=true'),
+                        'collection'   => getenv('MONGO_CONNECT_COLLECTION'),
+                        'database'     => getenv('MONGO_CONNECT_DB'),
                         'formatter'    => 'db',
 
                     ],
@@ -115,7 +126,7 @@ return [
         'connection' => [
             'default' => [
                 'params' => [
-                    'host'     => '127.0.0.1',
+                    'host'     => getenv('REDIS_HOST'),
                 ]
             ],
         ],
@@ -125,9 +136,9 @@ return [
         'connection' => [
             'default' => [
                 'params' => [
-                    'host'     => '127.0.0.1',
-                    'port'     => '9092',
-                    'brokerVersion'     => '1.0.0',
+                    'host'     => getenv('KAFKA_HOST'),
+                    'port'     => getenv('KAFKA_PORT'),
+                    'brokerVersion'     => getenv('KAFKA_BROKER_VERSION'),
                 ]
             ],
         ],

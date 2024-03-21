@@ -46,10 +46,10 @@ return [
             'orm_default' => [
                 'driverClass' => PDOMySqlDriver::class,
                 'params' => [
-                    'host'     => '127.0.0.1',
-                    'user'     => 'zf3_demo',
-                    'password' => 'zf3_demo123',
-                    'dbname'   => 'zf3_demo',
+                    'host'     => getenv('MYSQL_HOST'),
+                    'user'     => getenv('MYSQL_USER'),
+                    'password' => getenv('MYSQL_PASSWORD'),
+                    'dbname'   => getenv('MYSQL_DATABASE'),
                 ]
             ],
         ],
